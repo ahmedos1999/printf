@@ -15,13 +15,9 @@ int _putchar(char c)
 
 int _put_string(char *s)
 {	
-	int i = 0;
-	char string[BUFF_SIZE];
-
-	for (i = 0; s; i++)
+	while (*s != '\0')
 	{
-		string[i] = s[i];
-		_putchar(string[i]);
+		_putchar(*s++);	
 	}
-return (i);
+return (0);
 }

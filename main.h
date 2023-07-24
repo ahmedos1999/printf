@@ -30,6 +30,7 @@ typedef struct format_type
 
 int _printf(const char *format, ...);
 int (*format_spec(char c))(va_list);
+void spec_check (char *s, int *k);
 
 /****************** WRITE FUNCTIONS ******************/
 
@@ -40,5 +41,11 @@ int _putchar(char c);
 int print_string(va_list str_arg);
 int print_char(va_list char_arg);
 int print_percent(va_list percent_arg);
+int print_int(va_list int_arg);
+
+
+/****************** COMPELEMENTARY FUNCTIONS ******************/
+int count_digit(int i);
+void print_number(int n);
 
 #endif

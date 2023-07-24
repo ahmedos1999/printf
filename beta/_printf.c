@@ -6,7 +6,6 @@ int _printf(const char *format, ...)
 	int i= 0, l = 0, printed_chars = 0;
  	char buffer[BUFF_SIZE];		/* Character array to store the value from format pointer */
 	char *p = buffer;		/* ponter to character buffer Array */
-	register int count = 0;
 
 	va_start (arguments, format);
 
@@ -16,34 +15,21 @@ int _printf(const char *format, ...)
 	if (format[0] == '%' && format[1] == ' ' && !format[2])
 		return (-1);
 	
-	/* Loop stores value of format to buffer */
+	/* Loop to store the value of format to buffer */
 	while (i < BUFF_SIZE)
 	{
 		buffer[i] = format[i];
 		i++;
 	}
 	
-	/* Normal String writing loop */
+	/* writing loop */
 	for (l = 0; p[l] != '\0'; l++)
 	{
 		if (p[l] == '%')
 		{
 			l++;
-			switch (p[l])
-			{
-				case '%':
-				{
-					print_percent(arguments);
-					break;
-				}
-				case 'c':
-				{
-					print_char(arguments);
-					break;
-				}
-			}
-
-			
+			func_p = format_spec(p[l]);
+			(func_p) ? func_p(arguments) : _printf("%%%c", p[l]);
 		}
 		else 
 		{
