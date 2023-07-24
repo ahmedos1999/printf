@@ -28,12 +28,26 @@ int _printf(const char *format, ...)
 	{
 		if (p[l] == '%')
 		{
-			++l;
-			format_spec(p[l]);
+			l++;
+			switch (p[l])
+			{
+				case '%':
+				{
+					print_percent(arguments);
+					break;
+				}
+				case 'c':
+				{
+					print_char(arguments);
+					break;
+				}
+			}
+
+			
 		}
 		else 
 		{
-		_putchar(p[l]);
+			_putchar(p[l]);
 		}
 		printed_chars++;
 	}

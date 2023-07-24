@@ -11,10 +11,13 @@ int (*format_spec(char c))(va_list)
 
 	for (i = 0; i < 3; ++i)
 	{
-		if (functions[i].s == c)
+		if (c == functions[i].s)
 		{
 			return (functions[i].frmt_spec);
 		}
+		else 
+		{
+			return (NULL);
+		}
 	}
-return (NULL);	
 }
