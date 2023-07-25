@@ -45,18 +45,23 @@ int print_custom_s(va_list custom_s_arg, flag_type *flag)
  */
 int print_reverse(va_list rev_arg, flag_type *flag)
 {
-	int i = 0, j;
+	int i = 0, j = 0;
 	char *rev_s = va_arg(rev_arg, char *);
 
 	(void)flag;
 
 	if (!rev_s)
+	{
 		rev_s = "(null)";
+	}
 	while (rev_s[i])
+	{
 		i++;
+	}
 	for (j = i - 1; j >= 0; j--)
+	{
 		_putchar(rev_s[j]);
-
+	}
 return (i);
 }
 
