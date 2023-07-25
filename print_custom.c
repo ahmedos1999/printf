@@ -19,7 +19,7 @@ int print_custom_s(va_list custom_s_arg)
 
 	for (i = 0; s[i]; i++)
 	{
-		if ((s[i] > 0 && s[i] < 32) || s[i] >= 127)
+		if (s[i] > 0 && (s[i] < 32 || s[i] >= 127))
 		{
 			_put_string("\\x");
 			count += 2;
