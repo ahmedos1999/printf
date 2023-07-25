@@ -1,11 +1,7 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-
-
 #define BUFF_SIZE 1024
-
-
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -51,6 +47,12 @@ int (*format_spec(char c))(va_list, flag_type *);
 int _put_string(char *s);
 int _putchar(char c);
 
+/****************** COMPELEMENTARY FUNCTIONS ******************/
+int count_digit(int i);
+void print_number(int n);
+char *convert(unsigned long int num, int base, int lowercase);
+int if_flag(char s, flag_type *flag);
+
 /****************** PRINT FUNCTIONS ******************/
 int print_string(va_list str_arg, flag_type *flag);
 int print_char(va_list char_arg, flag_type *flag);
@@ -62,14 +64,10 @@ int print_hexa_cap(va_list hexa_cap_arg, flag_type *flag);
 int print_binary(va_list bin_arg, flag_type *flag);
 int print_octal(va_list octal_arg, flag_type *flag);
 int print_custom_s(va_list custom_s_arg, flag_type *flag);
+int print_reverse(va_list rev_arg, flag_type *flag);
+int print_rot13(va_list rot_arg, flag_type *flag);
 int print_address(va_list pointer_arg, flag_type *flag);
 
-
-/****************** COMPELEMENTARY FUNCTIONS ******************/
-int count_digit(int i);
-void print_number(int n);
-char *convert(unsigned long int num, int base, int lowercase);
-int if_flag(char s, flag_type *flag);
 
 
 #endif

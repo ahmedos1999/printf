@@ -36,3 +36,59 @@ int print_custom_s(va_list custom_s_arg, flag_type *flag)
 	}
 	return (count);
 }
+
+/**
+ * print_reverse - prints a string in reverse
+ * @rev_arg: argument from _printf
+ * @flag: pointer to the struct flags
+ * Return: length of the printed string
+ */
+int print_reverse(va_list rev_arg, flag_type *flag)
+{
+	int i = 0, j;
+	char *rev_s = va_arg(rev_arg, char *);
+
+	(void)flag;
+
+	if (!rev_s)
+		rev_s = "(null)";
+	while (rev_s[i])
+		i++;
+	for (j = i - 1; j >= 0; j--)
+		_putchar(rev_s[j]);
+
+return (i);
+}
+
+/**
+ * print_rot13 - prints a string using rot13
+ * @rot_arg: list of arguments from _printf
+ * @flag: pointer to the struct flags
+ * Return: length of the printed string
+ */
+int print_rot13(va_list rot_arg, flag_type *flag)
+{
+	int i, j;
+	char rot13[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	char ROT13[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
+	char *rot_s = va_arg(rot_arg, char *);
+
+	(void)flag;
+
+	for (j = 0; rot_s[j]; j++)
+	{
+		if (rot_s[j] < 'A' || (rot_s[j] > 'Z' && rot_s[j] < 'a') || rot_s[j] > 'z')
+			_putchar(rot_s[j]);
+		else
+		{
+			for (i = 0; i <= 52; i++)
+			{
+				if (rot_s[j] == rot13[i])
+				{
+					_putchar(ROT13[i]);
+				}
+			}
+		}
+	}
+return (j);
+}

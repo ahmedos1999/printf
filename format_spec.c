@@ -25,10 +25,12 @@ int (*format_spec(char c))(va_list, flag_type *)
 	{'x', print_hexa},
 	{'X', print_hexa_cap},
 	{'S', print_custom_s},
-	{'p', print_address}
+	{'p', print_address},
+	{'r', print_reverse},
+	{'R', print_rot13}
 	};
 
-	for (i = 0; i < 12; ++i)
+	for (i = 0; i < 14; ++i)
 	{
 		if (c == functions[i].s)
 		{
