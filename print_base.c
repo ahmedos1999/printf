@@ -26,10 +26,10 @@ int print_hexa(va_list hexa_arg)
 	char *h_str = convert(h_num, 16, 1);
 	int count = 0;
 
-	if (h_str[0] != '\0')
+	/*if (h_str[0] != '\0')
 	{
 		count += _put_string("0x");
-	}
+	}*/
 	count += _put_string(h_str);
 	return (count);
 }
@@ -47,10 +47,10 @@ int print_hexa_cap(va_list hexa_cap_arg)
 	char *h_str = convert(h_num, 16, 0);
 	int count = 0;
 
-	if (h_str[0] != '\0')
+	/*if (h_str[0] != '\0')
 	{
 		count += _put_string("0X");
-	}
+	}*/
 	count += _put_string(h_str);
 	return (count);
 }
@@ -83,10 +83,10 @@ int print_octal(va_list octal_arg)
 	char *o_str = convert(o_num, 8, 0);
 	int count = 0;
 
-	if (o_str[0] != '\0')
+	/*if (o_str[0] != '\0')
 	{
 		count += _putchar('0');
-	}
+	}*/
 	count += _put_string(o_str);
 	return (count);
 }
