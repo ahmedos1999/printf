@@ -52,6 +52,8 @@ int print_hexa(va_list hexa_arg);
 int print_hexa_cap(va_list hexa_cap_arg);
 int print_binary(va_list bin_arg);
 int print_octal(va_list octal_arg);
+int print_custom_s(va_list custom_s_arg);
+
 
 /****************** COMPELEMENTARY FUNCTIONS ******************/
 int count_digit(int i);

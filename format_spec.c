@@ -23,10 +23,11 @@ int (*format_spec(char c))(va_list)
 	{'u', print_unsigned},
 	{'o', print_octal},
 	{'x', print_hexa},
-	{'X', print_hexa_cap}
+	{'X', print_hexa_cap},
+	{'S', print_custom_s}
 	};
 
-	for (i = 0; i < 10; ++i)
+	for (i = 0; i < 11; ++i)
 	{
 		if (c == functions[i].s)
 		{
