@@ -18,10 +18,15 @@ int (*format_spec(char c))(va_list)
 	{'c', print_char},
 	{'s', print_string},
 	{'i', print_int},
-	{'d', print_int}
+	{'d', print_int},
+	{'b', print_binary},
+	{'u', print_unsigned},
+	{'o', print_octal},
+	{'x', print_hexa},
+	{'X', print_hexa_cap}
 	};
 
-	for (i = 0; i < 5; ++i)
+	for (i = 0; i < 10; ++i)
 	{
 		if (c == functions[i].s)
 		{

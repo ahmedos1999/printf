@@ -47,10 +47,15 @@ int print_string(va_list str_arg);
 int print_char(va_list char_arg);
 int print_percent(va_list percent_arg);
 int print_int(va_list int_arg);
-
+int print_unsigned(va_list unsign_arg);
+int print_hexa(va_list hexa_arg);
+int print_hexa_cap(va_list hexa_cap_arg);
+int print_binary(va_list bin_arg);
+int print_octal(va_list octal_arg);
 
 /****************** COMPELEMENTARY FUNCTIONS ******************/
 int count_digit(int i);
 void print_number(int n);
+char *convert(unsigned long int num, int base, int lowercase);
 
 #endif

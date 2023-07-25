@@ -16,12 +16,12 @@ int _putchar(char c)
 /**
  * _put_string - prints a string to standard output
  * @s: pointer to a string to be printed
- * @i: counter to count chars printed
  * Return: numbers of characters written
  */
 int _put_string(char *s)
 {
 	int i = 0;
+
 	while (*s != '\0')
 	{
 		_putchar(*s++);

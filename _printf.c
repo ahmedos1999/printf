@@ -13,9 +13,10 @@ int _printf(const char *format, ...)
 	int (*func_p)(va_list);
 	va_list arguments;
 	int i = 0, l = 0;
-	register int printed_chars = 0;
 	char buffer[BUFF_SIZE];
 	char *p = buffer;
+
+	register int printed_chars = 0;
 
 	va_start(arguments, format);
 
