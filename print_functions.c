@@ -22,19 +22,19 @@ int print_string(va_list str_arg)
 
 	if (!st)
 		st = "(Null)";
-	_put_string(st);
-	return (1);
+	return (_put_string(st));
 }
 
 /**
  * print_percent - prints a percent sign to stdout
  * @percent_arg: va_list arguments from _printf
- * Return: the printed percent sign
+ * Return: 1 on success
  **/
 int print_percent(va_list percent_arg)
 {
 	(void) percent_arg;
-	return (_putchar('%'));
+	_putchar('%');
+	return (1);
 }
 /**
  * print_int - prints a percent sign to stdout

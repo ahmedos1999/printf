@@ -12,7 +12,8 @@ int _printf(const char *format, ...)
 {
 	int (*func_p)(va_list);
 	va_list arguments;
-	int i = 0, l = 0, printed_chars = 0;
+	int i = 0, l = 0;
+	register int printed_chars = 0;
 	char buffer[BUFF_SIZE];
 	char *p = buffer;
 
@@ -36,13 +37,13 @@ int _printf(const char *format, ...)
 		{
 			l++;
 			func_p = format_spec(p[l]);
-			(func_p) ? func_p(arguments) : _printf("%%%c", p[l]);
+			printed_chars += (func_p) ? func_p(arguments) : _printf("%%%c", p[l]);
 		}
 		else
 		{
-			_putchar(p[l]);
+
+			printed_chars += _putchar(p[l]);
 		}
-		printed_chars++;
 	}
 	va_end(arguments);
 
