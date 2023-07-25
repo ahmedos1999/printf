@@ -10,7 +10,7 @@
  * Return: a pointer to the matching printing function
  **/
 
-int (*format_spec(char c))(va_list)
+int (*format_spec(char c))(va_list, flag_type *)
 {
 	int i = 0;
 	fmt_t functions[] = {

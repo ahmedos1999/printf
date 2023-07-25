@@ -12,6 +12,20 @@
 #include <limits.h>
 #include <stdarg.h>
 #include <unistd.h>
+/**
+ * struct flags - struct containing flags to "turn on"
+ * when a flag specifier is passed to _printf()
+ * @plus: flag for the '+' character
+ * @space: flag for the ' ' character
+ * @hash: flag for the '#' character
+ */
+typedef struct flags
+{
+	int plus;
+	int space;
+	int hash;
+} flag_type;
+
 
 /**
  * struct format_type - struct to choose the right function depending
@@ -22,20 +36,15 @@
 typedef struct format_type
 {
 	char s;
-	int (*frmt_spec)(va_list ap);
+	int (*frmt_spec)(va_list ap, flag_type *flag);
 } fmt_t;
-
-
-
-
 
 
 
 /****************** _PRINTF ******************/
 
 int _printf(const char *format, ...);
-int (*format_spec(char c))(va_list);
-void spec_check(char *s, int *k);
+int (*format_spec(char c))(va_list, flag_type *);
 
 /****************** WRITE FUNCTIONS ******************/
 
@@ -43,22 +52,24 @@ int _put_string(char *s);
 int _putchar(char c);
 
 /****************** PRINT FUNCTIONS ******************/
-int print_string(va_list str_arg);
-int print_char(va_list char_arg);
-int print_percent(va_list percent_arg);
-int print_int(va_list int_arg);
-int print_unsigned(va_list unsign_arg);
-int print_hexa(va_list hexa_arg);
-int print_hexa_cap(va_list hexa_cap_arg);
-int print_binary(va_list bin_arg);
-int print_octal(va_list octal_arg);
-int print_custom_s(va_list custom_s_arg);
-int print_address(va_list pointer_arg);
+int print_string(va_list str_arg, flag_type *flag);
+int print_char(va_list char_arg, flag_type *flag);
+int print_percent(va_list percent_arg, flag_type *flag);
+int print_int(va_list int_arg, flag_type *flag);
+int print_unsigned(va_list unsign_arg, flag_type *flag);
+int print_hexa(va_list hexa_arg, flag_type *flag);
+int print_hexa_cap(va_list hexa_cap_arg, flag_type *flag);
+int print_binary(va_list bin_arg, flag_type *flag);
+int print_octal(va_list octal_arg, flag_type *flag);
+int print_custom_s(va_list custom_s_arg, flag_type *flag);
+int print_address(va_list pointer_arg, flag_type *flag);
 
 
 /****************** COMPELEMENTARY FUNCTIONS ******************/
 int count_digit(int i);
 void print_number(int n);
 char *convert(unsigned long int num, int base, int lowercase);
+int if_flag(char s, flag_type *flag);
+
 
 #endif

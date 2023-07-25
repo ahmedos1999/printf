@@ -10,11 +10,12 @@
 
 int _printf(const char *format, ...)
 {
-	int (*func_p)(va_list);
+	int (*func_p)(va_list, flag_type *flag);
 	va_list arguments;
 	int i = 0, l = 0;
 	char buffer[BUFF_SIZE];
 	char *p = buffer;
+	flag_type flags = {0, 0, 0};
 
 	register int printed_chars = 0;
 
@@ -37,16 +38,16 @@ int _printf(const char *format, ...)
 		if (p[l] == '%')
 		{
 			l++;
+			while (if_flag(p[l], &flags))
+				l++;
 			func_p = format_spec(p[l]);
-			printed_chars += (func_p) ? func_p(arguments) : _printf("%%%c", p[l]);
+			printed_chars += (func_p)
+				? func_p(arguments, &flags) : _printf("%%%c", p[l]);
 		}
 		else
-		{
 
 			printed_chars += _putchar(p[l]);
-		}
 	}
 	va_end(arguments);
-
 return (printed_chars);
 }

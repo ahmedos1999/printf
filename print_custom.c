@@ -6,13 +6,16 @@
  * printed this way: \x, followed by the ASCII code
  * value in hexadecimal (upper case - always 2 characters)
  * @custom_s_arg: va_list arguments from _printf
+ * @flag: pointer to the struct flags
  * Return: number of char printed
  */
-int print_custom_s(va_list custom_s_arg)
+int print_custom_s(va_list custom_s_arg, flag_type *flag)
 {
 	int i, count = 0;
 	char *res;
 	char *s = va_arg(custom_s_arg, char *);
+
+	(void)flag;
 
 	if (!s)
 		return (_put_string("(null)"));
