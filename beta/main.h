@@ -13,12 +13,17 @@
 #include <stdarg.h>
 #include <unistd.h>
 
+/**
+ * struct format_type - struct to choose the right function depending
+ * on the format specifier passed to _printf()
+ * @s: format specifier
+ * @frmt_spec: pointer to the correct printing function
+ */
 typedef struct format_type
 {
 	char s;
 	int (*frmt_spec)(va_list ap);
-
-}fmt_t;
+} fmt_t;
 
 
 
@@ -30,7 +35,7 @@ typedef struct format_type
 
 int _printf(const char *format, ...);
 int (*format_spec(char c))(va_list);
-void spec_check (char *s, int *k);
+void spec_check(char *s, int *k);
 
 /****************** WRITE FUNCTIONS ******************/
 
