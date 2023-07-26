@@ -15,7 +15,7 @@ int _printf(const char *format, ...)
 	int i = 0, l = 0;
 	char buffer[BUFF_SIZE];
 	char *p = buffer;
-	flag_type flags = {0, 0, 0, 0};
+	flag_type flags = {0, 0, 0, 0, 0};
 
 	register int printed_chars = 0;
 
