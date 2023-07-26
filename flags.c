@@ -26,6 +26,14 @@ int if_flag(char s, flag_type *flag)
 			flag->hash = 1;
 			i = 1;
 			break;
+		 case '0':
+			flag->zero = 1;
+			i = 1;
+			break;
+		case '-':
+			flag->minus = 1;
+			i = 1;
+			break;
 	}
 	return (i);
 }

@@ -57,6 +57,10 @@ int print_int(va_list int_arg, flag_type *flag)
 		res += _putchar(' ');
 	if (flag->plus == 1 && n >= 0)
 		res += _putchar('+');
+	if (flag->minus == 1 && n <= 0)
+		res += _putchar('-');
+	if (flag->zero == 1 && n >= 0)
+		res += _putchar('0');
 	if (n <= 0)
 		res++;
 	print_number(n);

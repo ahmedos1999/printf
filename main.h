@@ -20,6 +20,8 @@ typedef struct flags
 	int plus;
 	int space;
 	int hash;
+	int zero;
+	int minus;
 } flag_type;
 
 
