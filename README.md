@@ -1,17 +1,71 @@
 0x11. C - printf (Group Project) by Ahmed Osama, Ahmed Osama
 
-_printf.c is the main function, that is required to print it's input arguments and string to standard output
-main.h is the header file that contains all the libraries required for the project and all the functions needed.
-print_functions.c, contains the functions responsible for printing, that _printf calls .
-	print_char : receives an argument and pointer to a flag (which gets neglected in this function) and prints a character to standard Out.
-	print_string : receives an argument and pointer to a flag (neglected) and prints a string to standard Out using a pointer.
-	print_percent : prints a "%" character to standard Out.
-	print_int : receives an argument and pointer to a flag and prints an integer (decimal - hexadecimal - octal - binary) to standard Out.
-writing_functions.c file, contains the basic writing functions using write() function like (_putchar and  _put_string)
-	_putchar : receive a character and prints it 
-	_put_string : recives a pointer and prints its content
-format_spec.c is the file that contains the function that is resposible for selecting which function to proceed using a typedef struct,
-this struct is called format_type (fmt_t).
-num_functions.c contains helper functions to print numbers and integers,
-And a converter function to help print different base numbers like octal, binary and hexadecimal
+# Custom Printf Implementation
 
+This repository contains a custom implementation of the standard `printf` function in C. The project showcases an in-depth understanding of string formatting, low-level I/O operations, and memory management in C programming.
+
+## Table of Contents
+
+- [Project Overview](#project-overview)
+- [Features](#features)
+- [Usage](#usage)
+- [Project Structure](#project-structure)
+- [How It Works](#how-it-works)
+- [Contributing](#contributing)
+- [License](#license)
+- [Acknowledgments](#acknowledgments)
+
+## Project Overview
+
+The `printf` function is a cornerstone of C programming, used for formatted output. This custom implementation replicates the functionality of the standard library's `printf`, providing flexibility and control for embedded systems or custom requirements.
+
+## Features
+
+- **Format Specifiers**: Supports standard format specifiers such as `%d`, `%s`, `%c`, and `%x`.
+- **Custom Output Handling**: Allows integration with different I/O streams.
+- **Memory-Efficient**: Optimized for use in resource-constrained environments.
+- **Portable Code**: Designed to be cross-platform compatible.
+
+## Usage
+
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/ahmedos1999/printf.git
+   ```
+
+2. **Compile the Code**:
+   - Use a C compiler like `gcc` to build the project:
+     ```bash
+     gcc -o printf main.c custom_printf.c
+     ```
+
+3. **Run the Program**:
+   ```bash
+   ./printf
+   ```
+
+4. **Modify and Extend**:
+   - Integrate the `custom_printf` function into your own projects for customized output formatting.
+
+## Project Structure
+
+- `/source`: Contains the implementation files, including `custom_printf.c` and headers.
+- `/examples`: Provides example use cases for testing and understanding the implementation.
+- `/docs`: Documentation explaining the design and development process.
+
+## How It Works
+
+The custom `printf` function parses a format string and replaces placeholders with corresponding arguments. The implementation involves:
+
+1. **Parsing**: Identifies format specifiers and extracts information.
+2. **Formatting**: Converts data types into strings based on the specifier.
+3. **Output**: Writes formatted strings to the desired output stream.
+
+### Supported Specifiers
+
+| Specifier | Description |
+|-----------|-------------|
+| `%d`      | Integer     |
+| `%s`      | String      |
+| `%c`      | Character   |
+| `%x`      | Hexadecimal |
